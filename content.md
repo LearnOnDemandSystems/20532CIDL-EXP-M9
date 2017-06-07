@@ -384,24 +384,9 @@ azure account show
 ```
 
 
-### Create a new Resource Group:
-To create a new Resource Group, type the following command in the console by providing the name rga20532, the West US location and then press Enter:  
-azure group create --name rga20532 --location "West US"
-
-#### :camera: SCREENSHOT
->LODSProperties
->* Uri = screens/666842.jpg
-
-
-
-#### :calling: COMMAND
-```TypeText
-azure group create --name rga20532 --location "West US"
-```
-
 
 ### View a list of your Resource Groups:
-To view a list of your Resource Groups, type the following command in the console, and then press Enter:  
+To view a list of your Resource Groups, type the following command in the console, and then press Enter: (You should see one pre-existing resource group listed - Make a note of it - you will need it later): 
 azure group list
 
 #### :camera: SCREENSHOT
@@ -417,8 +402,8 @@ azure group list
 
 
 ### Create a new Web App Resource:
-To create a new Web App Resource, type the following command in the console by providing the unique name selected for your Web App, the East US location and then press Enter:  
-azure resource create --name \[Unique Name\] --resource-type "Microsoft.Web/Sites" --api-version "2014-06-01" --location "East US" --resource-group rga20532
+To create a new Web App Resource, type the following command in the console by providing the unique name selected for your Web App and your resource group name, then press Enter:  
+azure resource create --name \[Unique Name\] --resource-type "Microsoft.Web/Sites" --api-version "2014-06-01" --location "East US" --resource-group \[Resource Group Name\]
 
 #### :bulb: KNOWLEDGE
 Note: You might get an error message notifying you that your Website’s name is not unique. If this occurs, select a new name until your Website is created.  
@@ -438,13 +423,13 @@ If successful, try to create the Web App again.
 
 #### :calling: COMMAND
 ```TypeText
-azure resource create --name [Unique Name] --resource-type "Microsoft.Web/Sites" --api-version "2014-06-01" --location "East US" --resource-group rga20532
+azure resource create --name [Unique Name] --resource-type "Microsoft.Web/Sites" --api-version "2014-06-01" --location "East US" --resource-group [Resource Group Name]
 ```
 
 
-### View a list of Resources in the rga20532:
-To view a list of Resources in the rga20532 Resource Group, type the following command in the console, and then press Enter:  
-azure resource list --resource-group rga20532
+### View a list of Resources in the your resource group:
+To view a list of Resources in your Resource Group, type the following command in the console, and then press Enter:  
+azure resource list --resource-group \[Resource Group Name\]
 
 #### :camera: SCREENSHOT
 >LODSProperties
@@ -454,13 +439,13 @@ azure resource list --resource-group rga20532
 
 #### :calling: COMMAND
 ```TypeText
-azure resource list --resource-group rga20532
+azure resource list --resource-group [Resource Group Name]
 ```
 
 
 ### Get the details for your new Website:
-To get the details for your new Website, type the following command in the console by providing the unique name selected for your Website, and then press Enter:  
-azure resource show --name \[Unique Name\] --resource-type "Microsoft.Web/Sites" --resource-group rga20532 --api-version "2014-06-01" --json
+To get the details for your new Website, type the following command in the console by providing the unique name selected for your Website and your resource group name, then press Enter:  
+azure resource show --name \[Unique Name\] --resource-type "Microsoft.Web/Sites" --resource-group \[Resource Group Name\] --api-version "2014-06-01" --json
 
 #### :camera: SCREENSHOT
 >LODSProperties
@@ -470,7 +455,7 @@ azure resource show --name \[Unique Name\] --resource-type "Microsoft.Web/Sites"
 
 #### :calling: COMMAND
 ```TypeText
-azure resource show --name [Unique Name] --resource-type "Microsoft.Web/Sites" --resource-group rga20532 --api-version "2014-06-01" --json
+azure resource show --name [Unique Name] --resource-type "Microsoft.Web/Sites" --resource-group [Resource Group Name] --api-version "2014-06-01" --json
 ```
 
 
@@ -519,8 +504,8 @@ Verify that the new Website is running. Close Internet Explorer. Switch to the C
 
 
 ### Remove your new Web App:
-To remove your new Web App, type the following command in the console by providing the unique name selected for your Website, and then press Enter:  
-azure resource delete --name \[Unique Name\] --resource-type "Microsoft.Web/Sites" --resource-group rga20532 --api-version "2014-06-01"  
+To remove your new Web App, type the following command in the console by providing the unique name selected for your Website and your resource group name, and then press Enter:   
+azure resource delete --name \[Unique Name\] --resource-type "Microsoft.Web/Sites" --resource-group \[Resource Group Name\] --api-version "2014-06-01"  
 Type Y to indicate that you want to remove the Web App, and then press Enter.
 
 #### :camera: SCREENSHOT
@@ -531,43 +516,7 @@ Type Y to indicate that you want to remove the Web App, and then press Enter.
 
 #### :calling: COMMAND
 ```TypeText
-azure resource delete --name [Unique Name] --resource-type "Microsoft.Web/Sites" --resource-group rga20532 --api-version "2014-06-01"
-```
-
-
-### Remove your new Resource Group:
-To remove your new Resource Group, type the following command in the console by providing the name rga20532, and then press Enter:  
-azure group delete --name rga20532  
-Type Y to indicate that you want to remove the Resource Group, and then press Enter.
-
-#### :bulb: KNOWLEDGE
-This may take a few minutes.
-
-#### :camera: SCREENSHOT
->LODSProperties
->* Uri = screens/666851.jpg
-
-
-
-#### :calling: COMMAND
-```TypeText
-azure group delete --name rga20532
-```
-
-
-### Verify that your Resource Group is deleted:
-To verify that your Resource Group has been removed, type the following command in the console by providing the name rga20532, and then press Enter. The result should be a failure:  
-azure group show --name rga20532
-
-#### :camera: SCREENSHOT
->LODSProperties
->* Uri = screens/666852.jpg
-
-
-
-#### :calling: COMMAND
-```TypeText
-azure group show --name rga20532
+azure resource delete --name [Unique Name] --resource-type "Microsoft.Web/Sites" --resource-group [Resource Group Name] --api-version "2014-06-01"
 ```
 
 
@@ -665,35 +614,17 @@ Get-AzureRmContext
 ```
 
 
-### Create a new instance of a resource group:
-To create a new instance of a resource group from the template, type the following command in the console, and then press Enter:  
-New-AzureRmResourceGroup -Name rgb20532 -Location "East US"
-
-#### :camera: SCREENSHOT
->LODSProperties
->* Uri = screens/666862.jpg
-
-
-
-#### :calling: COMMAND
-```TypeText
-New-AzureRmResourceGroup -Name rgb20532 -Location "East US"
-```
-
 
 ### Provide the parameters for the template:
-To provide the parameters for the template, type the following command in the console, press enter and then perform the following steps:  
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgb20532 -TemplateFile "F:\\Mod09\\Labfiles\\azuredeploy.json"  
+To provide the parameters for the template, type the following command in the console including your resource group name, press enter and then perform the following steps:  
+New-AzureRmResourceGroupDeployment -ResourceGroupName \[Resource Group Name\] -TemplateFile "F:\\Mod09\\Labfiles\\azuredeploy.json"  
 f. For the administratorLogin prompt, provide the value testuser, and then press Enter.  
 g. For the administratorLoginPassword prompt, provide the value TestPa$$w0rd, and press Enter.
 
 #### :bulb: KNOWLEDGE
 Note: Wait for the provisioning process to complete. Status messages will be displayed periodically and the final message with the details will be displayed when provisioning is complete.  
   
-Note: If you get an error "The subscription is not registered for the resource type 'components' in the location" you will need to remove the resource group created earlier using the command:   
-Remove-AzureRmResourceGroup –Name rgb20532  
-  
-Then redo the step that creates that resource group but in a different location and resubmit the deployment in PowerShell. If in doubt, use "East US". The issue is explained in this tech note:  
+Note: If you get an error "The subscription is not registered for the resource type 'components' in the location" then the issue is explained in this tech note:  
   
 https://azure.microsoft.com/en-us/updates/application-insights-general-availability-in-additional-regions-and-resource-location-update-east-us-south-central-us-west-europe-and-north-europe/
 
@@ -705,29 +636,24 @@ https://azure.microsoft.com/en-us/updates/application-insights-general-availabil
 
 #### :calling: COMMAND
 ```TypeText
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgb20532 -TemplateFile "F:\Mod09\Labfiles\azuredeploy.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName [Resource Group Name] -TemplateFile "F:\Mod09\Labfiles\azuredeploy.json"
 ```
 
 
-### Get the details of your new resource group:
-To get the details of your new resource group, type the following command in the console by providing the unique name selected for your Website, and then press Enter:  
-Get-AzureRmResourceGroup –ResourceGroupName rgb20532
-
-#### :camera: SCREENSHOT
->LODSProperties
->* Uri = screens/666864.jpg
-
+### Get the details of your resource group:
+To get the details of your resource group, type the following command in the console by providing the unique name selected for your Website, and then press Enter:  
+Get-AzureRmResourceGroup –ResourceGroupName \[Resource Group Name\]
 
 
 #### :calling: COMMAND
 ```TypeText
-Get-AzureRmResourceGroup –ResourceGroupName rgb20532
+Get-AzureRmResourceGroup –ResourceGroupName [Resource Group Name]
 ```
 
 
 ### Get the details of your new Web site
-To get the details of your new Web site, type the following command in the console by providing the unique name selected for your Website, and then press Enter:  
-\)Get-AzureRmResource -IsCollection -ResourceGroupName rgb20532 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01).Properties
+To get the details of your new Web site, type the following command in the console by providing the unique name selected for your Website and your resource group name, and then press Enter:  
+\)Get-AzureRmResource -IsCollection -ResourceGroupName \[Resource Group Name\] -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01).Properties
 
 #### :camera: SCREENSHOT
 >LODSProperties
@@ -737,7 +663,7 @@ To get the details of your new Web site, type the following command in the conso
 
 #### :calling: COMMAND
 ```TypeText
-(Get-AzureRmResource -IsCollection -ResourceGroupName rgb20532 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01).Properties
+(Get-AzureRmResource -IsCollection -ResourceGroupName [Resource Group Name] -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01).Properties
 ```
 
 
@@ -781,28 +707,6 @@ Verify that the new Website is running. Close Internet Explorer.
 
 
 
-
-
-### Remove your new resource group
-Switch to the Windows PowerShell console window. To remove your new resource group, type the following command in the console, and then press Enter:  
-Remove-AzureRmResourceGroup –Name rgb20532  
-Type Y to indicate that you want to remove the Resource Group, and then press Enter.
-
-#### :bulb: KNOWLEDGE
-Note: Because removing a resource group involves removing multiple resources, this process can take 5 to 15 minutes on average.
-
-#### :camera: SCREENSHOT
->LODSProperties
->* Uri = screens/666869.jpg
-
-
-
-#### :calling: COMMAND
-```TypeText
-Remove-AzureRmResourceGroup –Name rgb20532
-```
-
-
 ### Close the Windows PowerShell console window
 Close the Windows PowerShell console window
 
@@ -822,7 +726,7 @@ Close RDP session and click OK to disconnect
 
 
 ### Stop VM to save billing charges
-If you are stopping labs for the day, on the vm2032 Overview page in the Azure Portal, click Stop to stop billing charges until you start labs again. When prompted, click Yes to stop the VM.
+If you are stopping labs for the day, on the vm2032 Overview page in the Azure Portal, click Stop to stop billing charges until you start labs again. If prompted, click Yes to stop the VM.
 
 #### :camera: SCREENSHOT
 >LODSProperties
